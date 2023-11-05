@@ -16,6 +16,7 @@ export default function StartPage() {
 
   return (
     <section className="thank-you-page">
+      <img src="/icon-star.svg" alt="Icon Star" />
       <h2>How did we do?</h2>
       <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
       <ol>
