@@ -1,8 +1,18 @@
+import { func } from "prop-types";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function StartPage() {
   const [rating, setRating] = useState(null);
   const [ratings, setRatings] = useState([1, 2, 3, 4, 5]);
+
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // console.log("Submitting", rating);
+    navigate("/thank-you", { state: { rating } });
+  }
 
   return (
     <section className="thank-you-page">
@@ -15,7 +25,12 @@ export default function StartPage() {
           </li>
         ))}
       </ol>
-      <button disabled={!rating}>Submit</button>
+
+      <form onSubmit={handleSubmit}>
+        <button disabled={!rating} type="submit">
+          Submit
+        </button>
+      </form>
     </section>
   );
 }
