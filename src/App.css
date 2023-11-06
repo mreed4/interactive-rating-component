@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+/* 400, 700 */
 
 :root {
   font-family: "Overpass", sans-serif;
@@ -21,10 +22,12 @@
   --very-dark-blue: hsl(216, 12%, 8%);
 
   font-size: 15px;
+  background-color: var(--very-dark-blue);
+  color: var(--medium-gray);
 }
 
 #root {
-  max-width: 20rem;
+  max-width: 25rem;
   margin: auto;
 }
 
@@ -41,14 +44,103 @@ body {
   min-height: 100vh;
 }
 
-main {
+main section {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  background-color: var(--dark-blue);
+  background-image: radial-gradient(circle at 50% 10%, hsl(214, 19%, 16%), hsl(214, 26%, 12%));
+  border-radius: 2rem;
+}
+
+main:has(.thank-you-page) section {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
 }
 
 button {
   display: block;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+main:has(.thank-you-page) h2 {
+  margin-top: 2rem;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.n-out-of-5 {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);
+  background-color: hsla(0, 0%, 100%, 0.05);
+  padding: 0.75rem 1rem calc(0.75rem * (3 / 4));
+  border-radius: 2rem;
+  margin-top: 2rem;
+}
+
+div.star-container,
+button.rating-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: hsla(0, 0%, 100%, 0.05);
+}
+
+button.rating-button {
+  border: 2px solid transparent;
+}
+
+button.rating-button.selected {
+  color: var(--white);
+  font-weight: 700;
+  border-color: var(--orange);
+}
+
+div.star-container {
+  margin-bottom: 2rem;
+}
+
+ol,
+button[type="submit"] {
+  margin-top: 2rem;
+}
+
+button[type="submit"] {
   width: 100%;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: var(--orange);
+  /* font-size: 1.5rem; */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 700;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 ol {
